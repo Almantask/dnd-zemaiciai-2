@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Crimson Text', Georgia, serif;
+    background-color: #0c0a09;
+    color: #fef3c7;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Cinzel', Georgia, serif;
+  }
+}
+
+/* Custom animations for ambient atmosphere */
+@keyframes floatSmoke {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.45;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-90px) translateX(25px) scale(2.1);
+    opacity: 0;
+  }
+}
+
+@keyframes flickerGlow {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+  60% {
+    opacity: 0.45;
+    transform: scale(0.96);
+  }
+  80% {
+    opacity: 0.78;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes flyBird {
+  0% {
+    transform: translateX(-10vw) translateY(5vh) scale(0.7);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateX(45vw) translateY(-3vh) scale(0.9);
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(105vw) translateY(2vh) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@keyframes wingFlap {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(-0.4);
+  }
+}
+
+@keyframes dustMote {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.75;
+  }
+  70% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(18px, -36px);
+    opacity: 0;
+  }
+}
+
+@keyframes waterRipple {
+  0%, 100% {
+    transform: scaleX(1) translateY(0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleX(1.12) translateY(2px);
+    opacity: 0.65;
+  }
+}
+
+@keyframes footstepFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  80% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+}
+
+.animate-smoke {
+  animation: floatSmoke 5.5s ease-in-out infinite;
+}
+
+.animate-flicker {
+  animation: flickerGlow 3.2s ease-in-out infinite;
+}
+
+.animate-bird {
+  animation: flyBird 22s linear infinite;
+}
+
+.animate-wing {
+  animation: wingFlap 0.45s ease-in-out infinite;
+}
+
+.animate-dust {
+  animation: dustMote 6s ease-in-out infinite;
+}
+
+.animate-water {
+  animation: waterRipple 4s ease-in-out infinite;
+}
+
+/* Custom medieval scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(28, 25, 23, 0.8);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 83, 9, 0.6);
+  border-radius: 4px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 119, 6, 0.8);
+}
