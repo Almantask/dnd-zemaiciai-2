@@ -85,15 +85,15 @@ export const TOWN_BUILDINGS: TownBuilding[] = [
     id: 'magic_shop',
     name: 'Magiška parduotuvė / Žolininkas',
     subtitle: 'Žolelės, eliksyrai ir burtų reikmenys',
-    description: 'Mėlynai violetinis pastatas su kreivu kaminu, raštais ir švytinčiais žibintais.',
+    description: 'Mėlynai violetinis pastatas su raštais ir švytinčiais žibintais.',
     locationNote: 'Viduryje, dešiniau',
     iteration: 2,
     isOpen: false,
     hotspot: {
       x: 58,
-      y: 16,
-      width: 19,
-      height: 44,
+      y: 25,
+      width: 20,
+      height: 35,
     },
     labelPos: {
       x: 68,
@@ -178,6 +178,27 @@ export const TOWN_BUILDINGS: TownBuilding[] = [
     labelPos: {
       x: 55,
       y: 58,
+    },
+    footsteps: [],
+  },
+  {
+    id: 'alka',
+    name: 'Alka',
+    subtitle: 'Šventoji aukų vieta',
+    description:
+      'Aukštumoje stovintys apeiginiai akmenys, viduryje kūrenama ugnis, aplink susirinkę žyniai.',
+    locationNote: 'Viršuje dešinėje',
+    iteration: 3,
+    isOpen: false,
+    hotspot: {
+      x: 62,
+      y: 2,
+      width: 21,
+      height: 23,
+    },
+    labelPos: {
+      x: 73,
+      y: 12,
     },
     footsteps: [],
   },

@@ -12,22 +12,31 @@
   h1, h2, h3, h4, .font-display {
     font-family: 'Cinzel', Georgia, serif;
   }
+
+  .font-gothic {
+    font-family: 'Pirata One', 'Cinzel', Georgia, serif;
+    letter-spacing: 0.02em;
+  }
+
+  .font-manuscript {
+    font-family: 'IM Fell DW Pica', 'Crimson Text', Georgia, serif;
+  }
 }
 
 /* Custom animations for ambient atmosphere */
 @keyframes floatSmoke {
   0% {
-    transform: translateY(0) translateX(0) scale(0.8);
+    transform: translate(0, 0) scale(0.7);
     opacity: 0;
   }
   25% {
-    opacity: 0.45;
+    opacity: 0.5;
   }
   75% {
-    opacity: 0.25;
+    opacity: 0.22;
   }
   100% {
-    transform: translateY(-90px) translateX(25px) scale(2.1);
+    transform: translate(var(--smoke-drift, 16px), var(--smoke-rise, -80px)) scale(2);
     opacity: 0;
   }
 }
@@ -53,30 +62,88 @@
 
 @keyframes flyBird {
   0% {
-    transform: translateX(-10vw) translateY(5vh) scale(0.7);
+    transform: translate3d(-12vw, 2vh, 0) rotate(4deg) scale(0.95);
     opacity: 0;
   }
-  10% {
-    opacity: 0.85;
+  6% {
+    opacity: 1;
   }
-  50% {
-    transform: translateX(45vw) translateY(-3vh) scale(0.9);
+  30% {
+    transform: translate3d(28vw, 4.5vh, 0) rotate(2deg) scale(1.05);
   }
-  90% {
-    opacity: 0.85;
+  62% {
+    transform: translate3d(62vw, -1.5vh, 0) rotate(-4deg) scale(1);
+  }
+  94% {
+    opacity: 1;
   }
   100% {
-    transform: translateX(105vw) translateY(2vh) scale(0.7);
+    transform: translate3d(108vw, -3.5vh, 0) rotate(-2deg) scale(0.9);
     opacity: 0;
   }
 }
 
-@keyframes wingFlap {
+@keyframes flyBirdReverse {
+  0% {
+    transform: translate3d(108vw, -1vh, 0) scaleX(-1) rotate(3deg) scale(0.88);
+    opacity: 0;
+  }
+  7% {
+    opacity: 0.95;
+  }
+  45% {
+    transform: translate3d(52vw, 3vh, 0) scaleX(-1) rotate(-2deg) scale(0.96);
+  }
+  93% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(-12vw, 0.5vh, 0) scaleX(-1) rotate(-4deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes flyFlock {
+  0% {
+    transform: translate3d(-16vw, 3.5vh, 0) rotate(-2deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  35% {
+    transform: translate3d(26vw, 0.5vh, 0) rotate(-3deg);
+  }
+  70% {
+    transform: translate3d(68vw, -2.5vh, 0) rotate(-1deg);
+  }
+  94% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(112vw, -4vh, 0) rotate(-2deg);
+    opacity: 0;
+  }
+}
+
+@keyframes birdBob {
   0%, 100% {
-    transform: scaleY(1);
+    transform: translateY(-2.5px) rotate(-3deg);
   }
   50% {
-    transform: scaleY(-0.4);
+    transform: translateY(3px) rotate(4deg);
+  }
+}
+
+@keyframes flockMemberDrift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  33% {
+    transform: translate3d(3px, -4px, 0);
+  }
+  66% {
+    transform: translate3d(-2px, 3px, 0);
   }
 }
 
@@ -127,8 +194,26 @@
   }
 }
 
+@keyframes floatSteam {
+  0% {
+    transform: translate(0, 0) scale(0.85);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate(var(--smoke-drift, 6px), var(--smoke-rise, -36px)) scale(1.4);
+    opacity: 0;
+  }
+}
+
 .animate-smoke {
   animation: floatSmoke 5.5s ease-in-out infinite;
+}
+
+.animate-steam {
+  animation: floatSteam 3.8s ease-out infinite;
 }
 
 .animate-flicker {
@@ -136,11 +221,26 @@
 }
 
 .animate-bird {
-  animation: flyBird 22s linear infinite;
+  animation: flyBird 21s linear infinite;
+  will-change: transform, opacity;
 }
 
-.animate-wing {
-  animation: wingFlap 0.45s ease-in-out infinite;
+.animate-bird-reverse {
+  animation: flyBirdReverse 25s linear infinite;
+  will-change: transform, opacity;
+}
+
+.animate-flock {
+  animation: flyFlock 26s linear infinite;
+  will-change: transform, opacity;
+}
+
+.animate-bird-bob {
+  animation: birdBob 0.68s ease-in-out infinite;
+}
+
+.animate-flock-drift {
+  animation: flockMemberDrift 3.6s ease-in-out infinite;
 }
 
 .animate-dust {
@@ -149,6 +249,28 @@
 
 .animate-water {
   animation: waterRipple 4s ease-in-out infinite;
+}
+
+@keyframes staffMote {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.95;
+    transform: translate(calc(var(--mote-dx, 4px) * 0.45), calc(var(--mote-dy, -14px) * 0.45)) scale(1.1);
+  }
+  70% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate(var(--mote-dx, 8px), var(--mote-dy, -22px)) scale(0.3);
+    opacity: 0;
+  }
+}
+
+.animate-staff-mote {
+  animation: staffMote 3.2s ease-in-out infinite;
 }
 
 /* Custom medieval scrollbar */

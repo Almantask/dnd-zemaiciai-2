@@ -7,7 +7,8 @@ export type PlaceId =
   | 'tailor'
   | 'archery'
   | 'stable'
-  | 'general_shop';
+  | 'general_shop'
+  | 'alka';
 
 export interface FootstepPoint {
   x: number; // percentage 0-100
@@ -98,17 +99,81 @@ export interface TavernHero {
   topics: HeroTopic[];
 }
 
+export interface BookSpreadChoice {
+  id: string;
+  text: string;
+  detailNote?: string;
+  action?: 'next' | 'prev' | 'close';
+}
+
 export interface BookSpread {
   id: string;
   sessionNumber: number; // 0 for prologue
   tabLabel: string;
+  romanPlate?: string;
   title: string;
   dateLabel: string;
   isBookmarked?: boolean;
   storyParagraphs: string[];
+  promptQuestion?: string;
+  choices?: BookSpreadChoice[];
   illustrationTitle: string;
   illustrationCaption: string;
   illustrationPlaceholderNote: string;
+  illustrationUrl?: string;
+  illustrationScene?:
+    | 'tavern'
+    | 'forest'
+    | 'cavern'
+    | 'hillfort'
+    | 'innkeeper'
+    | 'scouts'
+    | 'horn'
+    | 'shield'
+    | 'moss'
+    | 'runes'
+    | 'lake'
+    | 'archive';
+}
+
+export type ArchiveEntityCategory =
+  | 'vieta'
+  | 'daiktas'
+  | 'asmuo'
+  | 'zmones'
+  | 'zenklai';
+
+export interface ArchiveEntityFact {
+  label: string;
+  value: string;
+}
+
+export interface ArchiveEntity {
+  id: string;
+  category: ArchiveEntityCategory;
+  categoryLabel: string;
+  title: string;
+  subtitle: string;
+  romanPlate?: string;
+  paragraphs: string[];
+  keyFacts?: ArchiveEntityFact[];
+  relatedIds?: string[];
+  illustrationTitle: string;
+  illustrationCaption: string;
+  illustrationScene:
+    | 'tavern'
+    | 'forest'
+    | 'cavern'
+    | 'hillfort'
+    | 'innkeeper'
+    | 'scouts'
+    | 'horn'
+    | 'shield'
+    | 'moss'
+    | 'runes'
+    | 'lake'
+    | 'archive';
+  illustrationUrl?: string;
 }
 
 export interface MapMarker {
@@ -127,6 +192,7 @@ export interface ArchiveMap {
   title: string;
   regionSubtitle: string;
   acquiredNote: string;
+  imageUrl: string;
   markers: MapMarker[];
 }
 
@@ -140,3 +206,4 @@ export interface TrophyItem {
   quirkNote: string;
   shelfSlot: string;
 }
+

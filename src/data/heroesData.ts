@@ -3,9 +3,9 @@ import { TavernHero } from '../types';
 export const TAVERN_HEROES: TavernHero[] = [
   {
     id: 'ranger',
-    name: 'Šaulys (Ranger)',
+    name: 'Šaulys',
     classTitle: 'Girių pėdsekys ir lankininkas',
-    dndClass: 'Ranger',
+    dndClass: 'Šaulys',
     specialty: 'Pozicionavimas, žvalgyba, nuotolinė kova ir kaip išnaudoti aplinką',
     greeting:
       '„Sėskis tyliau, nebaidyk sėkmės. Girioje ir kovoje laimi ne tas, kuris garsiausiai šaukia, o tas, kuris pirmas užima aukštumą. Ko nori paklausti?“',
@@ -18,7 +18,7 @@ export const TAVERN_HEROES: TavernHero[] = [
     topics: [
       {
         id: 'ranger-positioning',
-        title: 'Pozicionavimas ir priedangos (Positioning & Cover)',
+        title: 'Pozicionavimas ir priedangos',
         category: 'Pozicionavimas',
         summary: 'Kaip išnaudoti medžius, stalus, akmenis ir aukštumas D&D kovoje.',
         placeholderNote: '[Šablonas — čia galite įrašyti savo grupės pavyzdžius]',
@@ -54,10 +54,10 @@ export const TAVERN_HEROES: TavernHero[] = [
   },
   {
     id: 'warrior',
-    name: 'Karys (Warrior)',
+    name: 'Karys',
     classTitle: 'Šarvuotas priekinės linijos gynėjas',
-    dndClass: 'Fighter / Warrior',
-    specialty: 'Artima kova (Melee), linijos laikymas ir komandos apsauga',
+    dndClass: 'Karys',
+    specialty: 'Artima kova, linijos laikymas ir komandos apsauga',
     greeting:
       '„Žiūrėk į mano skydą — kiekvienas įkirtimas ant jo reiškia smūgį, kuris nekliuvo mūsų burtininkui ar dvasininkui. Nori išmokti stovėti tvirtai?“',
     hotspot: {
@@ -69,7 +69,7 @@ export const TAVERN_HEROES: TavernHero[] = [
     topics: [
       {
         id: 'warrior-melee',
-        title: 'Artima kova (Melee) ir erdvės kontrolė',
+        title: 'Artima kova ir erdvės kontrolė',
         category: 'Artima kova',
         summary: 'Kaip surišti priešus kovoje ir neleisti jiems praeiti pro šalį.',
         placeholderNote: '[Šablonas — čia galite įrašyti savo Kario patarimus]',
@@ -104,10 +104,10 @@ export const TAVERN_HEROES: TavernHero[] = [
   },
   {
     id: 'mage',
-    name: 'Burtininkas / Žiniuonis',
+    name: 'Burtininkas',
     classTitle: 'Ženklų, dainų ir burtų žinovas',
-    dndClass: 'Spellcaster (Wizard / Bard)',
-    specialty: 'Burtai (Spells), lauko kontrolė ir išradingas magijos panaudojimas',
+    dndClass: 'Burtininkas',
+    specialty: 'Burtai, lauko kontrolė ir išradingas magijos panaudojimas',
     greeting:
       '„Burtas nėra vien ugnies kamuolys, drauge. Vienas gerai parinktas kerų žodis gali užbaigti mūšį dar jam neprasidėjus. Apie kokią magiją pasišnekėsime?“',
     hotspot: {
@@ -119,7 +119,7 @@ export const TAVERN_HEROES: TavernHero[] = [
     topics: [
       {
         id: 'mage-spells',
-        title: 'Burtų valdymas ir Koncentracija (Spells & Concentration)',
+        title: 'Burtų valdymas ir koncentracija',
         category: 'Burtai',
         summary: 'Kaip nešvaistyti burtų lizdų (Spell Slots) ir išlaikyti koncentraciją.',
         placeholderNote: '[Šablonas — čia galite pridėti savo burtų sąrašą ar pastabas]',
@@ -144,10 +144,10 @@ export const TAVERN_HEROES: TavernHero[] = [
   },
   {
     id: 'cleric',
-    name: 'Dvasininkas (Cleric)',
+    name: 'Dvasininkas',
     classTitle: 'Tikėjimo, palaiminimų ir gydymo meistras',
-    dndClass: 'Cleric',
-    specialty: 'Gydymas (Healing), komandos stiprinimas (Buffs) ir išgyvenamumas',
+    dndClass: 'Dvasininkas',
+    specialty: 'Gydymas, komandos stiprinimas ir išgyvenamumas',
     greeting:
       '„Žaizdas užgydyti lengva, bet tikras išminčius neleidžia draugui kristi. Sėskis, parodysiu šiameraštyje, kada gydyti, o kada smogti šventa ugnimi.“',
     hotspot: {
@@ -159,7 +159,7 @@ export const TAVERN_HEROES: TavernHero[] = [
     topics: [
       {
         id: 'cleric-healing',
-        title: 'Gydymo menas (Healing) — kada gydyti, o kada atakuoti',
+        title: 'Gydymo menas — kada gydyti, o kada atakuoti',
         category: 'Gydymas',
         summary: 'Kodėl D&D 5e gydymas kovoje veikia kitaip nei kompiuteriniuose žaidimuose.',
         placeholderNote: '[Šablonas — čia galite papildyti savo Dvasininko patarimais]',

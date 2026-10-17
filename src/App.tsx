@@ -7,6 +7,8 @@ import { CurrencyHelpModal } from './components/CurrencyHelpModal';
 
 export const App: React.FC = () => {
   const [currentPlace, setCurrentPlace] = useState<PlaceId>('town');
+  const [currencyModalOpen, setCurrencyModalOpen] = useState(false);
+  const [readerOpen, setReaderOpen] = useState(false);
 
   // Support browser Back button to exit an establishment back to the town
   useEffect(() => {
@@ -37,12 +39,23 @@ export const App: React.FC = () => {
   return (
     <main className="relative w-screen h-screen overflow-hidden bg-stone-950">
       {/* Global "?" LDK XV c. Currency Help Button & Modal */}
-      <CurrencyHelpModal />
+      <CurrencyHelpModal onOpenChange={setCurrencyModalOpen} hidden={readerOpen} />
 
       {/* Scene Router */}
       {currentPlace === 'town' && <TownView onSelectPlace={navigateToPlace} />}
-      {currentPlace === 'tavern' && <TavernView onExit={handleExitToTown} />}
-      {currentPlace === 'archive' && <ArchiveView onExit={handleExitToTown} />}
+      {currentPlace === 'tavern' && (
+        <TavernView
+          onExit={handleExitToTown}
+          isGlobalMenuOpen={currencyModalOpen}
+        />
+      )}
+      {currentPlace === 'archive' && (
+        <ArchiveView
+          onExit={handleExitToTown}
+          isGlobalMenuOpen={currencyModalOpen}
+          onReaderOpenChange={setReaderOpen}
+        />
+      )}
     </main>
   );
 };

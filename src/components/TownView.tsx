@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Lock, MapPin, Compass } from 'lucide-react';
 import { PlaceId, TownBuilding } from '../types';
 import { TOWN_BUILDINGS } from '../data/townBuildings';
-import { AmbientEffects } from './AmbientEffects';
+import { AmbientEffects, useCoverBox } from './AmbientEffects';
+import { ShieldDialogFrame, ShieldOption } from './DialoguePrototypes';
 
 interface TownViewProps {
   onSelectPlace: (place: PlaceId) => void;
@@ -13,6 +14,8 @@ export const TownView: React.FC<TownViewProps> = ({ onSelectPlace }) => {
   const [closedModalBuilding, setClosedModalBuilding] = useState<TownBuilding | null>(null);
   const [walkingTo, setWalkingTo] = useState<TownBuilding | null>(null);
   const [showAllLabels, setShowAllLabels] = useState(true);
+  const { ref: sceneRef, box } = useCoverBox();
+  const coverReady = box.width > 0;
 
   const handleBuildingClick = (building: TownBuilding) => {
     if (walkingTo) return; // Prevent double navigation during 1s footstep animation
@@ -39,7 +42,7 @@ export const TownView: React.FC<TownViewProps> = ({ onSelectPlace }) => {
   return (
     <div className="relative w-screen h-screen bg-stone-950 overflow-hidden flex items-center justify-center select-none">
       {/* Main Interactive Scene Wrapper */}
-      <div className="relative w-full h-full">
+      <div ref={sceneRef} className="relative w-full h-full">
         <img
           src="/images/town.jpg"
           alt="Žemaitijos miestelis"
@@ -83,7 +86,17 @@ export const TownView: React.FC<TownViewProps> = ({ onSelectPlace }) => {
           </button>
         </div>
 
-        {/* Building Interactive Hotspots */}
+        {/* Hotspots sit on the illustration itself, including the parts object-cover crops */}
+        {coverReady && (
+        <div
+          className="absolute z-20"
+          style={{
+            left: box.left,
+            top: box.top,
+            width: box.width,
+            height: box.height,
+          }}
+        >
         {TOWN_BUILDINGS.map((building) => {
           const isHovered = hoveredBuilding?.id === building.id;
           const isWalkingTarget = walkingTo?.id === building.id;
@@ -156,34 +169,6 @@ export const TownView: React.FC<TownViewProps> = ({ onSelectPlace }) => {
           );
         })}
 
-        {/* Hover Information Card at Bottom Left */}
-        {hoveredBuilding && !walkingTo && (
-          <div className="pointer-events-none absolute bottom-5 left-5 z-30 max-w-md p-4 rounded-xl bg-stone-950/90 border border-amber-700/60 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.85)] transition-all">
-            <div className="flex items-center justify-between gap-3 mb-1">
-              <h3 className="font-display text-base md:text-lg font-bold text-amber-200">
-                {hoveredBuilding.name}
-              </h3>
-              <span
-                className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${
-                  hoveredBuilding.isOpen
-                    ? 'bg-emerald-950/80 border-emerald-500/60 text-emerald-300'
-                    : 'bg-stone-800 border-stone-600 text-stone-300'
-                }`}
-              >
-                {hoveredBuilding.isOpen
-                  ? 'Atidaryta (Iteracija I)'
-                  : `Uždaryta (Iteracija ${hoveredBuilding.iteration})`}
-              </span>
-            </div>
-            <p className="text-xs text-amber-400/90 font-semibold mb-1.5">
-              {hoveredBuilding.subtitle} • Vieta: {hoveredBuilding.locationNote}
-            </p>
-            <p className="text-sm text-amber-100/90 leading-snug">
-              {hoveredBuilding.description}
-            </p>
-          </div>
-        )}
-
         {/* 1-Second Footsteps Animation Overlay */}
         {walkingTo && (
           <div className="pointer-events-none absolute inset-0 z-30">
@@ -236,69 +221,86 @@ export const TownView: React.FC<TownViewProps> = ({ onSelectPlace }) => {
                 </div>
               );
             })}
+          </div>
+        )}
+        </div>
+        )}
 
-            {/* Walking status toast */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-2.5 rounded-full bg-stone-950/90 border-2 border-amber-400/80 text-amber-200 font-display text-sm md:text-base font-bold tracking-wider shadow-[0_0_25px_rgba(251,191,36,0.5)]">
-              Žengiama į: {walkingTo.name}...
+        {/* Hover Information Card at Bottom Left */}
+        {hoveredBuilding && !walkingTo && (
+          <div className="pointer-events-none absolute bottom-5 left-5 z-30 max-w-md p-4 rounded-xl bg-stone-950/90 border border-amber-700/60 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.85)] transition-all">
+            <div className="flex items-center justify-between gap-3 mb-1">
+              <h3 className="font-display text-base md:text-lg font-bold text-amber-200">
+                {hoveredBuilding.name}
+              </h3>
+              <span
+                className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${
+                  hoveredBuilding.isOpen
+                    ? 'bg-emerald-950/80 border-emerald-500/60 text-emerald-300'
+                    : 'bg-stone-800 border-stone-600 text-stone-300'
+                }`}
+              >
+                {hoveredBuilding.isOpen ? 'Atidaryta' : 'Uždaryta'}
+              </span>
             </div>
+            <p className="text-xs text-amber-400/90 font-semibold mb-1.5">
+              {hoveredBuilding.subtitle} • Vieta: {hoveredBuilding.locationNote}
+            </p>
+            <p className="text-sm text-amber-100/90 leading-snug">
+              {hoveredBuilding.description}
+            </p>
+          </div>
+        )}
+
+        {walkingTo && (
+          <div className="pointer-events-none absolute bottom-8 left-1/2 z-30 -translate-x-1/2 px-6 py-2.5 rounded-full bg-stone-950/90 border-2 border-amber-400/80 text-amber-200 font-display text-sm md:text-base font-bold tracking-wider shadow-[0_0_25px_rgba(251,191,36,0.5)]">
+            Žengiama į: {walkingTo.name}...
           </div>
         )}
       </div>
 
-      {/* Closed Establishment Modal ("OK" Modal) */}
+      {/* Closed Establishment Modal ("OK" Modal in Prototype I Shield Design) */}
       {closedModalBuilding && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4"
-          onClick={() => setClosedModalBuilding(null)}
+        <ShieldDialogFrame
+          titlePlaque={closedModalBuilding.name}
+          subtitlePlaque="Uždaryta"
+          onClose={() => setClosedModalBuilding(null)}
+          position="center"
+          maxWidthClass="max-w-xl"
         >
-          <div
-            className="w-full max-w-md rounded-xl bg-gradient-to-b from-stone-900 to-stone-950 border-2 border-amber-700/70 shadow-[0_0_40px_rgba(0,0,0,0.9)] overflow-hidden text-amber-50"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="px-6 py-4 bg-stone-950/80 border-b border-amber-800/40 flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-stone-800 border border-stone-600 text-amber-400">
-                <Lock className="w-5 h-5" />
+          <div className="space-y-4">
+            <p className="text-amber-100/95 text-lg italic leading-relaxed">
+              „Durys šiuo metu užrakintos. Ši vieta bus atidaryta{' '}
+              <strong className="text-[#fef08a]">
+                {closedModalBuilding.iteration}-ojoje iteracijoje
+              </strong>
+              .“
+            </p>
+
+            <div className="p-3.5 rounded bg-black/40 border border-stone-700/80 text-sm text-stone-300 space-y-1">
+              <div>
+                <span className="text-amber-400 font-display font-bold uppercase text-xs mr-1.5">
+                  Apibūdinimas:
+                </span>
+                {closedModalBuilding.description}
               </div>
               <div>
-                <h2 className="font-display text-lg font-bold text-amber-200">
-                  {closedModalBuilding.name} — Uždaryta
-                </h2>
-                <p className="text-xs text-stone-400">
-                  Suplanuota: Iteracija {closedModalBuilding.iteration}
-                </p>
+                <span className="text-amber-400 font-display font-bold uppercase text-xs mr-1.5">
+                  Vieta miestelyje:
+                </span>
+                {closedModalBuilding.locationNote}
               </div>
             </div>
 
-            <div className="p-6 space-y-3">
-              <p className="text-amber-100/95 text-base leading-relaxed">
-                Durys šiuo metu užrakintos. Ši vieta bus atidaryta{' '}
-                <strong className="text-amber-300">
-                  {closedModalBuilding.iteration}-ojoje iteracijoje
-                </strong>
-                .
-              </p>
-              <div className="p-3.5 rounded-lg bg-stone-900/90 border border-stone-700/70 text-sm text-stone-300 space-y-1">
-                <div>
-                  <span className="text-amber-400/90 font-semibold">Apibūdinimas: </span>
-                  {closedModalBuilding.description}
-                </div>
-                <div>
-                  <span className="text-amber-400/90 font-semibold">Vieta miestelyje: </span>
-                  {closedModalBuilding.locationNote}
-                </div>
-              </div>
-            </div>
-
-            <div className="px-6 py-3.5 bg-stone-950/90 border-t border-amber-900/40 flex justify-end">
-              <button
+            <div className="pt-2 border-t border-stone-700/80">
+              <ShieldOption
+                label="OK (Supratau)"
+                active
                 onClick={() => setClosedModalBuilding(null)}
-                className="px-8 py-2 rounded-lg bg-gradient-to-b from-amber-600 to-amber-800 hover:from-amber-500 hover:to-amber-700 text-amber-50 font-display font-bold text-sm tracking-widest border border-amber-400/60 shadow-lg transition-all"
-              >
-                OK
-              </button>
+              />
             </div>
           </div>
-        </div>
+        </ShieldDialogFrame>
       )}
     </div>
   );

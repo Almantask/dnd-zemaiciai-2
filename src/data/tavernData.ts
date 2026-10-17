@@ -182,7 +182,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
       y: 79,
       width: 6,
       height: 15,
-      label: 'Brandinto midaus butelis su vaško antspaudu',
+      label: 'Brandinto midaus butelis',
     },
   },
   {
@@ -205,7 +205,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
       y: 74,
       width: 11,
       height: 11,
-      label: 'Ruginės duonos kepalas ant ajerų',
+      label: 'Ruginės duonos kepalas',
     },
   },
   {
