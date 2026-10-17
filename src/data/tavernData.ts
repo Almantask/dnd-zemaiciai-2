@@ -20,7 +20,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'food',
     name: 'Prasta skurdžio žinia (dienai)',
     dndTerm: 'Meals (Squalid)',
-    price: '3 denarai (3 CP)',
+    price: '3 denarai',
     description: 'Miežinė košė be taukų, prėskas ruginis paplotėlis ir šaltas vanduo.',
     statsAndEffects:
       'Palaiko gyvybingumą 1 dienai (apsaugo nuo išsekimo / Exhaustion dėl bado), tačiau nesuteikia jokio moralinio ar socialinio pranašumo.',
@@ -36,7 +36,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'food',
     name: 'Paprasta valstiečių vakarienė (dienai)',
     dndTerm: 'Meals (Poor)',
-    price: '6 denarai (6 CP)',
+    price: '6 denarai',
     description:
       'Tiršta žirnių ir kopūstų sriuba su spirgais, ruginė duona su kanapių sėklomis ir puodelis rūgštaus raugalo (girių).',
     statsAndEffects:
@@ -53,7 +53,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'food',
     name: 'Sotus užeigos maistas (dienai)',
     dndTerm: 'Meals (Modest)',
-    price: '5 grašiai (5 SP)',
+    price: '5 grašiai',
     description:
       'Troškinta aviena arba šerniena, kepta lydeka su krienais, sūris su kmynais ir pilnas geros medaus girios ar alaus ąsotis.',
     statsAndEffects:
@@ -77,7 +77,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'food',
     name: 'Svečių ir pirklių puota (dienai)',
     dndTerm: 'Meals (Comfortable)',
-    price: '8 grašiai (8 SP)',
+    price: '8 grašiai',
     description:
       'Žvėriena, kepti tetervinai, riebūs lašiniai, blynai su uogienėmis ir stambus dubuo karšto prieskoniais kvepiančio midaus.',
     statsAndEffects:
@@ -94,7 +94,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'food',
     name: 'Bajoriška puota (dienai)',
     dndTerm: 'Meals (Wealthy / Aristocratic)',
-    price: '2 auksinai (2 GP)',
+    price: '2 auksinai',
     description:
       'Gulbės, stumbro kepsniai, įvežtiniai pietų prieskoniai (šafranas, pipirai), geriausio kelerių metų brandinimo kunigaikščių midus ir Vakarų Europos vynas.',
     statsAndEffects:
@@ -111,7 +111,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'drink',
     name: 'Miežinis / Dūminis alus (1 bokalas)',
     dndTerm: 'Ale (pint)',
-    price: '4 denarai (4 CP)',
+    price: '4 denarai',
     description: 'Tamsus, tirštas vietinis alus, virtas kaimo bravoruose.',
     statsAndEffects:
       'Numalšina troškulį, drąsina širdį. Išgėrus per daug — galimas Constitution patikrinimas dėl apsvaigimo.',
@@ -134,7 +134,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'drink',
     name: 'Medaus gira arba silpnas midus (ąsotis)',
     dndTerm: 'Ale (gallon)',
-    price: '2 grašiai (2 SP)',
+    price: '2 grašiai',
     description: 'Didelis ąsotis lengvo, gaivinančio medaus gėrimo (gidos).',
     statsAndEffects:
       'Užtenka visai 4–5 nuotykių ieškotojų grupei (apie 8 bokalus). Gaivina, bet greitai neapsvaigina.',
@@ -150,7 +150,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'drink',
     name: 'Smuklės midus / Vynas (taurė)',
     dndTerm: 'Wine (common)',
-    price: '2 grašiai (2 SP)',
+    price: '2 grašiai',
     description: 'Stacionarus, saldus medaus midus arba paprastas raudonas uogų vynas.',
     statsAndEffects:
       'Šildo kūną ir pakelia nuotaiką. Tinka ramiems pokalbiams su mokslinčiais, dvasininkais ar burtininkais.',
@@ -166,7 +166,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'drink',
     name: 'Kunigaikščių brandintas midus (butelis)',
     dndTerm: 'Wine (fine)',
-    price: '10 auksinų (10 GP)',
+    price: '10 auksinų',
     description:
       'Daug metų kamštinėse statinėse brandintas kilmingas midus, kurį geria tik bajorai ir karaliaus pasiuntiniai.',
     statsAndEffects:
@@ -190,7 +190,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'travel',
     name: 'Duonos kepalas (kelionei)',
     dndTerm: 'Loaf of bread',
-    price: '2 denarai (2 CP)',
+    price: '2 denarai',
     description: 'Sunkus, juodas ruginis duonos kepalas, keptas ant ajerų lapų.',
     statsAndEffects:
       'Paprastas maistas 1 dienai kelionėje. Lėtai žiedėja, išlieka valgomas net po savaitės kuprinėje.',
@@ -213,7 +213,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'travel',
     name: 'Rūkyta mėsa / Sūris (kelionei)',
     dndTerm: 'Rations (1 day)',
-    price: '5 grašiai (5 SP)',
+    price: '5 grašiai',
     description:
       'Džiovinta šerniena, sūdyti lašiniai, ruginiai džiūvėsiai ir kietas varškės sūris (tinkamas ilgai žygiuoti).',
     statsAndEffects:
@@ -237,7 +237,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'travel',
     name: 'Žirgo pašaras (1 dienai)',
     dndTerm: 'Feed (per day)',
-    price: '5 denarai (5 CP)',
+    price: '5 denarai',
     description: 'Maišelis avižų ir geras glėbys šieno smuklės tvartelyje.',
     statsAndEffects:
       'Išlaiko žirgą ar nešulinį gyvulį sotų 1 parą. Svarbu žiemą arba vietovėse, kur nėra ganyklų.',
@@ -262,7 +262,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'lodging',
     name: 'Šiaudinis gultas tvartelyje',
     dndTerm: 'Inn (Squalid)',
-    price: '7 denarai (7 CP)',
+    price: '7 denarai',
     description: 'Vieta ant šiaudų tvartelyje šalia žirgų – pigiausia, bet šilta nakvynė.',
     statsAndEffects:
       'Leidžia atlikti ilgąjį poilsį (Long Rest) po stogu. Daiktai nesaugomi, todėl verta pasisaugoti ilgapirščių.',
@@ -278,7 +278,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'lodging',
     name: 'Bendras suolas / Aslos grindys',
     dndTerm: 'Inn (Poor)',
-    price: '2 grašiai (2 SP)',
+    price: '2 grašiai',
     description:
       'Vieta ant bendrųjų smuklės salės grindų prie krosnies (reikia turėti savo kailinį guolį).',
     statsAndEffects:
@@ -295,7 +295,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'lodging',
     name: 'Bendras kambarys (Lova su čiužiniu)',
     dndTerm: 'Inn (Modest)',
-    price: '5 grašiai (5 SP)',
+    price: '5 grašiai',
     description:
       'Vieta bendrame kambaryje su keliais kitais keliautojais (lovos su šiaudų čiužiniais).',
     statsAndEffects:
@@ -312,7 +312,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'lodging',
     name: 'Atskiras kambarys (su lova ir langu)',
     dndTerm: 'Inn (Comfortable)',
-    price: '8 grašiai (8 SP)',
+    price: '8 grašiai',
     description:
       'Atskiras mažas kambarėlis virš smuklės su tikra lova, vilnone antklode ir rankų praustuvu.',
     statsAndEffects:
@@ -336,7 +336,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'lodging',
     name: 'Bajorų ložė / Saugi skrynios menė',
     dndTerm: 'Inn (Wealthy / Aristocratic)',
-    price: '2 auksinai (2 GP)',
+    price: '2 auksinai',
     description:
       'Didelis, šildytas kambarys su patvaria ąžuoline skrynia daiktams rakinti, kilimais ir švaria patalyne.',
     statsAndEffects:
@@ -353,7 +353,7 @@ export const TAVERN_ITEMS: ShopItem[] = [
     category: 'lodging',
     name: 'Pirtis / Prakaito kubilas',
     dndTerm: 'Bath',
-    price: '1 grašis (1 SP)',
+    price: '1 grašis',
     description:
       'Karštas vanduo, vanta ir kubilas smuklės pirtelėje – nuplauna kelionės purvą ir suteikia žvalumo.',
     statsAndEffects:

@@ -516,7 +516,7 @@ export const ARCHIVE_MAPS: ArchiveMap[] = [
     title: 'Lietuvos Didžioji Kunigaikštystė, XV a.',
     regionSubtitle: 'Magni Ducatus Lithuaniae',
     acquiredNote: 'Sieninis archyvo žemėlapis',
-    imageUrl: '/images/ldk-map.jpg',
+    imageUrl: `${import.meta.env.BASE_URL}images/ldk-map.jpg`,
     markers: [
       {
         id: 'loc-town',

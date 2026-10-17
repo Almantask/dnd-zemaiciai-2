@@ -849,7 +849,7 @@ export const ArchiveView: React.FC<ArchiveViewProps> = ({
     >
       {/* Background Archive Illustration */}
       <img
-        src="/images/archive.jpg"
+        src={`${import.meta.env.BASE_URL}images/archive.jpg`}
         alt="Archyvo vidus"
         className="w-full h-full object-cover object-center"
         draggable={false}

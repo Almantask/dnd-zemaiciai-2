@@ -44,7 +44,7 @@ export const TownView: React.FC<TownViewProps> = ({ onSelectPlace }) => {
       {/* Main Interactive Scene Wrapper */}
       <div ref={sceneRef} className="relative w-full h-full">
         <img
-          src="/images/town.jpg"
+          src={`${import.meta.env.BASE_URL}images/town.jpg`}
           alt="Žemaitijos miestelis"
           className="w-full h-full object-cover object-center"
           draggable={false}

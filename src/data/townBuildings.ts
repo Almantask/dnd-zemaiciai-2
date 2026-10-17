@@ -9,7 +9,7 @@ export const TOWN_BUILDINGS: TownBuilding[] = [
     locationNote: 'Kairėje apačioje',
     iteration: 1,
     isOpen: true,
-    preloadImage: '/images/tavern.jpg',
+    preloadImage: `${import.meta.env.BASE_URL}images/tavern.jpg`,
     hotspot: {
       x: 14,
       y: 56,
@@ -39,7 +39,7 @@ export const TOWN_BUILDINGS: TownBuilding[] = [
     locationNote: 'Dešinėje apačioje',
     iteration: 1,
     isOpen: true,
-    preloadImage: '/images/archive.jpg',
+    preloadImage: `${import.meta.env.BASE_URL}images/archive.jpg`,
     hotspot: {
       x: 80,
       y: 59,

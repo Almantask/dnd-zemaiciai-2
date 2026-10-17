@@ -84,7 +84,7 @@ export const TavernView: React.FC<TavernViewProps> = ({
     <div className="relative w-screen h-screen bg-stone-950 overflow-hidden select-none">
       {/* Background Tavern Illustration */}
       <img
-        src="/images/tavern.jpg"
+        src={`${import.meta.env.BASE_URL}images/tavern.jpg`}
         alt="Smuklės vidus"
         className="w-full h-full object-cover object-center"
         draggable={false}
