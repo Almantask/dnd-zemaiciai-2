@@ -3,7 +3,7 @@ import { TownBuilding } from '../types';
 export const TOWN_BUILDINGS: TownBuilding[] = [
   {
     id: 'tavern',
-    name: 'Smuklė (Taverna)',
+    name: 'Smuklė',
     subtitle: '„Juodojo Lokio“ užeiga',
     description: 'Medinis namelis su alaus bokalo iškaba, statinėmis ir lauko stalu.',
     locationNote: 'Kairėje apačioje',
@@ -83,7 +83,7 @@ export const TOWN_BUILDINGS: TownBuilding[] = [
   },
   {
     id: 'magic_shop',
-    name: 'Magiška parduotuvė / Žolininkas',
+    name: 'Magijos ir žolelių parduotuvė',
     subtitle: 'Žolelės, eliksyrai ir burtų reikmenys',
     description: 'Mėlynai violetinis pastatas su raštais ir švytinčiais žibintais.',
     locationNote: 'Viduryje, dešiniau',
@@ -103,7 +103,7 @@ export const TOWN_BUILDINGS: TownBuilding[] = [
   },
   {
     id: 'tailor',
-    name: 'Odininkas / Siuvėjas',
+    name: 'Odininko ir Siuvėjo Parduotuvė',
     subtitle: 'Kailiai, apsiaustai ir odiniai šarvai',
     description: 'Dviaukštis medinis namas su raudonu stogeliu, audiniais ir šarvų manekenu.',
     locationNote: 'Viršuje per vidurį',
@@ -123,7 +123,7 @@ export const TOWN_BUILDINGS: TownBuilding[] = [
   },
   {
     id: 'archery',
-    name: 'Lankininkas (Šaudykla)',
+    name: 'Šaudykla',
     subtitle: 'Lankai, strėlės ir taiklumo pratybos',
     description: 'Atvira pieva su trimis šiaudiniais taikiniais ir besitreniruojančiais lankininkais.',
     locationNote: 'Kairėje viršuje',

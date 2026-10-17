@@ -7,160 +7,31 @@ interface CurrencyHelpModalProps {
 }
 
 /**
- * Stylized Question Mark (?) fused with Baltic Symbols:
- * 1. Top Curve: Baltic Žaltys (sacred grass snake of wisdom) with geometric diamond scales
- *    and Saulutė (forged sun-cross) rays radiating from the crown
- * 2. Stem: Kryždirbystės cross-bars & Laimos eglutė chevrons
- * 3. Left/Right flanks: Gediminaičių stulpai (Columns of Gediminas) & Rombas (Earth diamond)
- * 4. Bottom Dot: Baltic Auseklis (8-pointed morning star)
+ * Simple, understated question mark icon with a subtle diamond dot.
  */
 export const BalticQuestionIcon: React.FC<{
   className?: string;
-  variant?: 'gold' | 'ink';
-}> = ({ className = 'w-12 h-12', variant = 'gold' }) => {
-  const isInk = variant === 'ink';
-  const primaryStroke = isInk ? '#1a0e06' : 'url(#balticGoldMain)';
-  const accentStroke = isInk ? '#2b170a' : '#fef08a';
-  const subtleStroke = isInk ? '#3b2110' : '#fbbf24';
-  const darkFill = isInk ? 'rgba(43, 23, 10, 0.08)' : 'rgba(20, 11, 5, 0.82)';
-  const innerCarve = isInk ? '#d5be8e' : '#451a03';
-
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      {!isInk && (
-        <defs>
-          <linearGradient
-            id="balticGoldMain"
-            x1="14"
-            y1="6"
-            x2="50"
-            y2="58"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0%" stopColor="#fffbeb" />
-            <stop offset="28%" stopColor="#fef08a" />
-            <stop offset="68%" stopColor="#f59e0b" />
-            <stop offset="100%" stopColor="#b45309" />
-          </linearGradient>
-          <linearGradient
-            id="balticRimGrad"
-            x1="0"
-            y1="0"
-            x2="64"
-            y2="64"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0%" stopColor="#fef08a" />
-            <stop offset="50%" stopColor="#f59e0b" />
-            <stop offset="100%" stopColor="#92400e" />
-          </linearGradient>
-        </defs>
-      )}
-
-      {/* Outer Octagonal Baltic Shield Rim */}
-      <polygon
-        points="20,3 44,3 61,20 61,44 44,61 20,61 3,44 3,20"
-        stroke={isInk ? '#1a0e06' : 'url(#balticRimGrad)'}
-        strokeWidth="2"
-        fill={darkFill}
-      />
-      <polygon
-        points="22,6.5 42,6.5 57.5,22 57.5,42 42,57.5 22,57.5 6.5,42 6.5,22"
-        stroke={subtleStroke}
-        strokeWidth="0.9"
-        strokeDasharray="2.5 2.5"
-        opacity="0.7"
-      />
-
-      {/* Cardinal Baltic Sun-Diamonds (N, S, E, W) */}
-      <g fill={accentStroke}>
-        <polygon points="32,1 34.2,4.5 32,8 29.8,4.5" />
-        <polygon points="32,56 34.2,59.5 32,63 29.8,59.5" />
-        <polygon points="1,32 4.5,29.8 8,32 4.5,34.2" />
-        <polygon points="56,32 59.5,29.8 63,32 59.5,34.2" />
-      </g>
-
-      {/* Left & Right Flanking Baltic Symbols: Mini Columns of Gediminas + Laimos Chevrons */}
-      <g stroke={subtleStroke} strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" opacity="0.88">
-        {/* Left Gediminaičių pillar motif */}
-        <path d="M9.5 26 L9.5 37 L15.5 37 L15.5 26 M12.5 24 L12.5 37 M9.5 30.5 L12.5 30.5 M12.5 33.5 L15.5 33.5" />
-        {/* Right Gediminaičių pillar motif */}
-        <path d="M48.5 26 L48.5 37 L54.5 37 L54.5 26 M51.5 24 L51.5 37 M51.5 30.5 L54.5 30.5 M48.5 33.5 L51.5 33.5" />
-      </g>
-
-      {/* Forged Baltic Saulutė Crown Rays radiating from the Question Mark Arch */}
-      <g stroke={accentStroke} strokeWidth="1.65" strokeLinecap="round">
-        <line x1="22" y1="13" x2="18.5" y2="8.8" />
-        <line x1="27.8" y1="10.2" x2="26.2" y2="6.2" />
-        <line x1="35.5" y1="10.2" x2="37" y2="6.2" />
-        <line x1="41.5" y1="13" x2="45" y2="9" />
-        <line x1="45" y1="18.5" x2="49.2" y2="16.8" />
-      </g>
-
-      {/* MAIN STYLIZED QUESTION MARK (?) — Žaltys Serpentine Curve + Kryždirbystės Stem */}
-      {!isInk && (
-        <path
-          d="M20 22 C20 14.2, 25.5 10.8, 32.8 10.8 C40 10.8, 44.5 14.8, 44.5 21 C44.5 26.5, 40 29.2, 35.5 31.6 C33 33, 32 34.6, 32 37.5 L32 41"
-          stroke="#140902"
-          strokeWidth="8.5"
-          strokeLinecap="round"
-        />
-      )}
-      <path
-        d="M20 22 C20 14.2, 25.5 10.8, 32.8 10.8 C40 10.8, 44.5 14.8, 44.5 21 C44.5 26.5, 40 29.2, 35.5 31.6 C33 33, 32 34.6, 32 37.5 L32 41"
-        stroke={primaryStroke}
-        strokeWidth="5.8"
-        strokeLinecap="round"
-      />
-      {/* Carved Baltic Diamond/Chevron Spine inside the '?' curve */}
-      <path
-        d="M20 22 C20 14.2, 25.5 10.8, 32.8 10.8 C40 10.8, 44.5 14.8, 44.5 21 C44.5 26.5, 40 29.2, 35.5 31.6 C33 33, 32 34.6, 32 37.5 L32 40"
-        stroke={innerCarve}
-        strokeWidth="1.5"
-        strokeDasharray="2.5 2.5"
-        strokeLinecap="round"
-      />
-
-      {/* Baltic Cross-Bars (Kryžma) on the Question Mark Stem */}
-      <path
-        d="M26 37.8 L38 37.8 M28 34.8 L36 34.8"
-        stroke={accentStroke}
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-
-      {/* Žaltys / Baltic Rhombus Head at the start of the '?' hook */}
-      <polygon
-        points="20,27.2 24.8,22 20,16.8 15.2,22"
-        fill={primaryStroke}
-        stroke={innerCarve}
-        strokeWidth="1.1"
-      />
-      <circle cx="20" cy="22" r="1.4" fill={innerCarve} />
-
-      {/* QUESTION MARK DOT: 8-Pointed Baltic Auseklis Star & Sun-Rhombus */}
-      <g transform="translate(32, 50)">
-        {/* 8-Pointed Auseklis Star Geometry */}
-        <polygon
-          points="0,-7.2 2,-2 7.2,0 2,2 0,7.2 -2,2 -7.2,0 -2,-2"
-          fill={primaryStroke}
-        />
-        <polygon
-          points="-5,-5 -1.2,-2 5,-5 2,-1.2 5,5 1.2,2 -5,5 -2,1.2"
-          fill={subtleStroke}
-          opacity="0.9"
-        />
-        <circle cx="0" cy="0" r="1.6" fill={innerCarve} />
-      </g>
-    </svg>
-  );
-};
+}> = ({ className = 'w-6 h-6' }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    aria-hidden="true"
+  >
+    <path
+      d="M8.2 7.8a3.8 3.8 0 0 1 7.6 0c0 2.2-2.1 3-3.1 4.1-.55.58-.7 1.15-.7 2.1v.6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <polygon
+      points="12,17.2 13.6,18.8 12,20.4 10.4,18.8"
+      fill="currentColor"
+    />
+  </svg>
+);
 
 /** Organic scorched rim, in objectBoundingBox units (0–1). */
 const SCORCHED_EDGE =
@@ -198,15 +69,15 @@ export const CurrencyHelpModal: React.FC<CurrencyHelpModalProps> = ({
 
   return (
     <>
-      {/* Top-Right Stylized Question Mark with Baltic Symbols */}
+      {/* Top-Right Help Button */}
       {!hidden && (
       <button
         onClick={() => updateOpen(!isOpen)}
         title="Keliautojo atmintinė"
         aria-label="Keliautojo atmintinė"
-        className="fixed top-4 right-4 z-[60] group flex items-center justify-center w-[58px] h-[58px] p-1 rounded-2xl bg-gradient-to-b from-[#3b1d06] via-[#1c1008] to-[#0c0704] border-2 border-amber-400/90 shadow-[0_0_25px_rgba(245,158,11,0.55),inset_0_0_12px_rgba(251,191,36,0.3)] hover:scale-105 hover:border-amber-200 hover:shadow-[0_0_36px_rgba(251,191,36,0.85)] transition-all duration-300"
+        className="fixed top-4 right-4 z-[60] flex items-center justify-center w-10 h-10 rounded-lg bg-stone-900/85 hover:bg-stone-800 border border-amber-700/50 hover:border-amber-600/70 text-amber-200/80 hover:text-amber-100 backdrop-blur-md shadow-md transition-colors"
       >
-        <BalticQuestionIcon className="w-[46px] h-[46px] group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.65)]" />
+        <BalticQuestionIcon className="w-6 h-6" />
       </button>
       )}
 
